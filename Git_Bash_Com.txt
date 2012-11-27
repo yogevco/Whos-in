@@ -1,0 +1,43 @@
+git init
+
+git status
+
+git add <file name>
+
+git commit -m "Add cute octocat story"
+
+git add '*.txt'
+
+git log
+
+git remote add origin git@github.com:itaiezra/try_git.git
+
+git pull origin master
+
+git diff HEAD
+
+git add octofamily/octodog.txt
+
+git diff --staged
+
+git reset octofamily/octodog.txt
+
+git checkout -- octocat.txt
+
+git branch clean_up
+
+git checkout clean_up
+
+git rm '*.txt'
+
+git commit -m "Remove all the cats"
+
+git checkout master
+
+git merge clean_up
+
+git branch -d clean_up
+
+git push
+
+
