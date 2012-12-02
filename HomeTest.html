@@ -6,19 +6,19 @@
     <meta charset="utf-8" />
     <title>User Registration</title>
     <style type="text/css">
-    
+    	
     </style>
 </head>
-<body>
+<body background = "https://lh3.googleusercontent.com/-028CHKdjnWM/ULuGgBtrQdI/AAAAAAAAAGg/C5xWPi0JczY/s1152/19820-blue-vintage-wallpaper-background.jpg">
     <blockquote>
-      <p><img src="https://lh6.googleusercontent.com/-7I_6Zy_4kXQ/UJKqc01_T_I/AAAAAAAAAGA/ayb0lKnNNrk/s230/logo.png" width="259" height="130">
+      <p><img src="https://lh4.googleusercontent.com/-pSCElH3ugFI/ULuGf_jNzQI/AAAAAAAAAGc/yJe8KANMAmg/s459/logo.png" width="400" height="130">
         
         <div class="front-signin js-front-signin">
         <div class="placeholding-input username">
           <input type="text" id="signin-email" class="text-input email-input" name="session[username_or_email]" title="Username or email" autocomplete="on" tabindex=1>
           <label for="signin-email" class="placeholder">Username or email</label>
         </div>
-    
+     <form action="login.php" method ="POST">
         <table class="flex-table password-signin">
           <tbody>
           <tr>
@@ -36,14 +36,13 @@
           </tr>
           </tbody>
         </table>
-    
         <div class="remember-forgot">
           <label class="remember">
             <input type="checkbox" value="1" name="remember_me" tabindex=3>
             <span>Remember me</span>
           </label>
           <span class="separator">&middot;</span>
-          <a class="forgot" href="/account/resend_password">Forgot password?</a>
+          <a class="forgot" href="/forgot.html">Forgot password?</a>
         </div>
     
         <input type="hidden" name="return_to_ssl" value="true">
@@ -76,7 +75,7 @@
             <input type="password" id="signup-user-password" class="text-input" name="user[user_password]">
             <label for="signup-user-password" class="placeholder">Password</label>
           </div>
-    	  <div class="placeholding-input">
+    	  <div class="front-signup js-front-signup">
             <input type="file" id="user-pic" class="file" autocomplete="off" name="user[pic]">
             <label for="file" class="placeholder">Picture</label>
           </div>
