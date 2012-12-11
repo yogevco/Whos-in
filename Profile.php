@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['Email'])) {
-  echo "Your session is running " . $_SESSION['Email'];
+//  echo "Welcome Back: " . $_SESSION['Email'];
 }
 	$logEmail =  $_SESSION['Email'];
 	mysql_connect("mysql16.joinweb.co.il:3306", "whosinco_Itai", "YcNsIe13") or die ("Couldn't connect to database");
@@ -12,11 +12,24 @@ if(isset($_SESSION['Email'])) {
 		while ($row = mysql_fetch_assoc($query))
 		{
 			$dbName = $row['Private_Name'];
-			$dbLast = $row['Last_Name'];	
+			$dbLast = $row['Last_Name'];			
+			$dbAge = $row['Age'];
+			$dbPicture = $row['Picture'];
 			$dbEmail = $row['Email'];
-			$dbPic = $row['Picture'];		
 		}
+		$TARGET_PATH .= "images/";
+		$TARGET_PATH .= $dbPicture;
+		$kab = explode(".", $dbPicture);
+		$format = end($kab);
 		
+		require("includes/ak_php_ing_lib_1.0.php");
+	//	$target_file = "uploads/$fileName";
+	//	$resized_file = "uploads/resized_$fileName";
+        $wmax = 350;
+        $hmax = 250;
+        ak_img_resize($TARGET_PATH, $TARGET_PATH, $wmax, $hmax, $format);
+		//echo " $dbName $dbLast $dbAge <img src='".$TARGET_PATH."'>";
+
 ?>
       
       
@@ -31,13 +44,10 @@ if(isset($_SESSION['Email'])) {
 <body background = "19820-blue-vintage-wallpaper-background.jpg">
     <p><img src="Untitled.png" width="400" height="130">
       
-	  <p>Email: <?php echo "$dbEmail";?> </p>
-	  <p>First Name:<?php echo "$dbName";?> </p>
-	  <p>Last Name:<?php echo "$dbLast";?> </p>
-	  <p>Pic:<?php $dbPic ?> </p>
-    
-    
-        
+	  <p>Email: <?php echo $dbEmail;?> </p>
+	  <p>First Name:<?php echo $dbName;?></p>  
+	  <p>Last Name:<?php echo $dbLast;?></p>
+	  <p><?php echo "<img src='".$TARGET_PATH."'>"?></p> 
     
 </body>
 </html>
