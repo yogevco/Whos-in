@@ -2,15 +2,15 @@
 
 session_start();
 
-$username = $_post['username'];
-$password = $_post['password'];
+$Email = $_POST['Email'];
+$Password = $_POST['Password'];
 
-if ($username&&$password)
+if ($Email&&$Password)
 {
 	$connect = mysql_connect("mysql16.joinweb.co.il:3306", "whosinco_Itai", "YcNsIe13") or die ("Couldn't connect to database");
 	mysql_select_db("whosinco_users1") or die ("couldn't find database");
 	
-	$query = mysql_query("SELECT * FROM users WHERE Email='$username'");
+	$query = mysql_query("SELECT * FROM users WHERE Email='$Email'");
 	
 	$numrows = mysql_num_rows($query);
 	
@@ -20,27 +20,27 @@ if ($username&&$password)
 		
 		while ($row = mysql_fetch_assoc($query))
 		{
-			$dbusername = $row['username'];
-			$dbpassword = $row['password'];			
+			$dbEmail = $row['Email'];
+			$dbPassword = $row['Password'];			
 		}
 		
-			if ($username==$dbusername&&$password==$dbpassword)
+			if ($Email==$dbEmail&&$Password==$dbPassword)
 			{
-				echo "Login successful. <a href='membersarea.php'>Click here to enter the members area</a>";
-				$_SESSION['username']=$dbusername;
+				echo "Login successful. <a href='Profile.php'>Click here to enter the members area</a>";
+				$_SESSION['Email']=$dbEmail;
 			
 			}
 			else 
-				echo "Incorrect password";
+				echo "Incorrect Password";
 				
 		
 		
 	}
 	else 
-		die ("That email does not exist");
+		die ("That Email does not exist");
 	
 }
 else 
-	die ("Please enter an email and password");
+	die ("Please enter an Email and Password");
 
 ?>
