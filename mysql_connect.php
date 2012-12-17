@@ -1,15 +1,15 @@
 <?php	 
 	// Host name
-	$host = "mysql16.joinweb.co.il:3306";
+	$host = "***************";
 	 
 	// Database username
-	$username = "whosinco_Itai";
+	$username = "*************";
 	 
 	// Database password
-	$password = "YcNsIe13";
+	$password = "********";
 	 
 	// Name of database
-	$database = "whosinco_users1";
+	$database = "**************";
 	 
 	$conn = mysql_connect($host, $username, $password) or die ("Could not connect");
 	$db = mysql_select_db($database, $conn) or die ("Could not select DB");
