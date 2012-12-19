@@ -2,6 +2,7 @@ This project is brought to you by:
 - Itai Ezra
 - Yogev Cohen
 - Nachum Spigelman
+
   AKA "Who's In?" team
 
 "Who's In?" vision:
