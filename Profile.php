@@ -4,8 +4,7 @@ if(isset($_SESSION['Email'])) {
 //  echo "Welcome Back: " . $_SESSION['Email'];
 }
 	$logEmail =  $_SESSION['Email'];
-	mysql_connect("mysql16.joinweb.co.il:3306", "whosinco_Itai", "YcNsIe13") or die ("Couldn't connect to database");
-	mysql_select_db("whosinco_users1") or die ("couldn't find database");
+	require("includes/mysql_connect.php");
 //	$row = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE Email='$Email' LIMIT 1"));
 	$query = mysql_query("SELECT * FROM users WHERE Email='$logEmail'");
 	$numrows = mysql_num_rows($query);
@@ -48,6 +47,11 @@ if(isset($_SESSION['Email'])) {
 	  <p>First Name:<?php echo $dbName;?></p>  
 	  <p>Last Name:<?php echo $dbLast;?></p>
 	  <p><?php echo "<img src='".$TARGET_PATH."'>"?></p> 
+      <form action="logout.php" method ="POST">
+      <button type="submit" class="btn signup-btn">
+            logout
+          </button>
+       </form>
     
 </body>
 </html>

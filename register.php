@@ -75,7 +75,7 @@ if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 	
 						if (file_exists($TARGET_PATH))
 						{
-							echo "file already exist";
+							echo "file name already exist in our data base, please change file";
 						  //  header("Location: index.html");
 						  //  exit;
 						}
