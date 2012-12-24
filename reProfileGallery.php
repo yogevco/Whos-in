@@ -74,9 +74,9 @@ else
     <div id="navbar">
     	<div id="holder">
     		<ul>
-				<li><a href="reProfile.php" id="onlink">Profile</a></li>      
-                <li><a href="reProfilePost.php">Post</a></li> 
-                <li><a href="reProfileGallery.php">Gallery</a></li>  
+				<li><a href="reProfile.php">Profile</a></li>      
+                <li><a href="reprofilePost.php">Post</a></li> 
+                <li><a href="reProfileGallery.php" id="onlink">Gallery</a></li>  
         	</ul>
     	</div><!-- end of "holder" -->
     </div><!--end of "navbar" -->

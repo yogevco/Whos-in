@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	$Email = $_POST['Email'];
 	$PrivateName = $_POST['FirstName'];
 	$LastName = $_POST['LastName'];
@@ -6,53 +8,29 @@
 	$Password = $_POST['Password'];
 	$Password1 = $_POST['Password1'];
 	$Picture = $_FILES['Picture'];
-	//$Pic_format = mime_content_type($Picture);
+	
+	$_SESSION['Email'] = $Email;
+	$_SESSION['FirstName'] = $PrivateName;
+	$_SESSION['LastName'] = $LastName;
+	$_SESSION['Age'] = $Age;
+	$_SESSION['Password'] = $Password;
+	$_SESSION['Password1'] = $Password1;
+	$_SESSION['Picture'] = $Picture;
+
 	//$enc_password = md5($Password);
-	echo " $Email $PrivateName $LastName $Age $Password $Password1";
-	
-	
-	/*$target_path = "uploads/";
-
-$target_path = $target_path . basename( $_FILES['uploadedfile']['name']); 
-
-if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-    echo "The file ".  basename( $_FILES['uploadedfile']['name']). 
-    " has been uploaded";
-} else{
-    echo "There was an error uploading the file, please try again!";
-}
-	
-	*/
-	
-	if($Picture['name']=="")
-	{
-		echo "you didnt upload pictur    ";
-	}
+	//echo " $Email $PrivateName $LastName $Age $Password $Password1";	
 	
 	if($Email && $PrivateName && $LastName && $Age && $Password && $Password1 && $Picture)
-	{
-		if(strlen($Password)<6)
-		{
-			echo "your password is too short";
-		}
-		else 
-			if($Age < 18)
-			{
-				echo "you must be over 18";
-			}
-			else  if($Password == $Password1)
+		if(strlen($Password)>=6)
+			if($Age >= 18)
+			   if($Password == $Password1)
 					{
-						$TARGET_PATH .= "images/";
-	
-			/*			$Email = mysql_real_escape_string($Email);
-						$PrivateName = mysql_real_escape_string($PrivateName);
-						$LastName = mysql_real_escape_string($LastName);
-						$Age = mysql_real_escape_string($Age); */
-					//	$Picture['name'] = mysql_real_escape_string($Picture['name']);
-	
-						$TARGET_PATH .= $Picture['name'];
-	
-	
+						$TARGET_PATH .= "images/";	
+						$TARGET_PATH .= $PrivateName;
+						$TEMP_PATH = $TARGET_PATH;
+						$TEMP_PATH2 = $TARGET_PATH;
+						$TEMP_PATH2 .= $Picture['name'];
+						
 						function is_valid_type($Picture)
 						{
 					    // This is an array that holds all the valid image MIME types
@@ -73,13 +51,19 @@ if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 	
 						require("includes/mysql_connect.php");
 	
-						if (file_exists($TARGET_PATH))
+						$counter = 0;
+						while (file_exists($TEMP_PATH2))
 						{
-							echo "file name already exist in our data base, please change file";
+							$counter = $counter + 1;
+							$TEMP_PATH2 = $TEMP_PATH;
+							$TEMP_PATH2 .= $counter;
+							$TEMP_PATH2 .= $Picture['name'];
+							//echo "file name already exist in our data base, please change file";
 						  //  header("Location: index.html");
 						  //  exit;
 						}
 	
+						$TARGET_PATH = $TEMP_PATH2;
 						if (move_uploaded_file($Picture['tmp_name'], $TARGET_PATH))
 						{
 	    // NOTE: This is where a lot of people make mistakes.
@@ -87,7 +71,7 @@ if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 	   				//		 $sql = "insert into people (fname, lname, filename) values ('$fname', '$lname', '" . $image['name'] . "')";
 	    			//		$result = mysql_query($sql) or die ("Could not insert data into DB: " . mysql_error());
 		
-							$query = mysql_query("INSERT INTO users VALUES ('$Email', '$PrivateName', '$LastName', '$Age', '$Password', '" . $Picture['name'] . "', '')");
+							$query = mysql_query("INSERT INTO users VALUES ('$Email', '$PrivateName', '$LastName', '$Age', '$Password', '" . $TARGET_PATH . "', '')");
 							die("Registration complete! <a href='index.html'>Click here to login</a>");
 						    exit;
 						}
@@ -100,12 +84,8 @@ if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
 						      
 						}	
 					}
-					else
-					{
-						echo "password must match";
-					}	
-	}
-	else echo "All fields are required";
+	 header("Location: check_reg.php");
+//	 header("Location: index.html");
 	
 ?>
 
