@@ -1,62 +1,13 @@
 <?php
 	session_start();
-	$ID = $_POST['ID'];
-	$Password = $_POST['Password'];
-
-	if ($ID&&$Password)
-{
-	require("includes/mysql_connect.php");
-	
-	$query = mysql_query("SELECT * FROM re WHERE ID='$ID'");
-	
-	$numrows = mysql_num_rows($query);
-	
-	if($numrows != 0)
-	
-	{
-		
-		while ($row = mysql_fetch_assoc($query))
-		{
-			$dbID = $row['ID'];
-			$dbPassword = $row['Password'];	
-			$dbLOGO = $row['LOGO'];
-			$dbName = $row['Business_Name'];
-			$dbAdress = $row['Business_Adress'];
-			$dbEmail = $row['Email'];
-		}
-		
-			if ($ID==$dbID&&$Password==$dbPassword)
-			{
-				
-				
-				//echo "Login successful. <a href='Profile.php'>Click here to enter the members area</a>";
-				//$_SESSION['Email']=$dbEmail;
-			
-			}
-			else 
-				{
-					echo "Incorrect Password";
-					header("Location: reLogin.php");
-				}
-		
-		
-	}
-	else 
-		{
-			die ("That ID does not exist");
-			header("Location: reLogin.php");
-		}
-	
-}
-else 
-{
-	
-	die ("Please enter an Email and Password");
-	header("Location: reLogin.php");
-}
-
- $TARGET_PATH .= "images/";
- $TARGET_PATH .= $dbLOGO;
+	$dbID = $_SESSION['ID'];
+	$dbPassword = $_SESSION['Password'];	
+	$dbLOGO = $_SESSION['LOGO'];
+	$dbName = $_SESSION['Name'];
+	$dbAdress = $_SESSION['Adress'];
+	$dbEmail = $_SESSION['Email'];
+	$TARGET_PATH .= "images/";
+ 	$TARGET_PATH .= $dbLOGO;
 
 ?>
 

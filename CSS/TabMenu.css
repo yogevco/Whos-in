@@ -9,7 +9,7 @@
 
 #navbar #holder
 {
-	height:64px;
+	height:51px;
 	border-bottom:1px solid #000;
 	width:366px;
 	padding-left:25px;	
@@ -30,13 +30,12 @@
 	color:#000;
 	border:1px solid #000;
 	border-bottom:none;
-	padding:20px;
+	padding:15px;
 	width:60px;
 	text-align:center;
 	display:block;
 	background:none;
-	-moz-border-radius-topleft:15px;
-	-moz-border-radius-topright:15px;
+	border-radius:15px;
 }
 
 #navbar #holder ul li a:hover
@@ -48,14 +47,14 @@
 
 #holder ul li a#onlink
 {
-	background:#FFF;
-	color:#000;
+	background:none;
+	color:#C0F;
 	border-bottom:1px solid #FFF;
 }
 
 #holder ul li a#onlink:hover
 {
-	background:#FFF;
+	background:none;
 	color:#69F;
 	text-shadow:1px 1px 1px #000;
 }
