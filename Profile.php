@@ -16,7 +16,7 @@ if(isset($_SESSION['Email'])) {
 			$dbPicture = $row['Picture'];
 			$dbEmail = $row['Email'];
 		}
-		$TARGET_PATH .= "images/";
+		//$TARGET_PATH .= "images/";
 		$TARGET_PATH .= $dbPicture;
 		$kab = explode(".", $dbPicture);
 		$format = end($kab);
@@ -46,7 +46,7 @@ if(isset($_SESSION['Email'])) {
 	  <p>Email: <?php echo $dbEmail;?> </p>
 	  <p>First Name:<?php echo $dbName;?></p>  
 	  <p>Last Name:<?php echo $dbLast;?></p>
-	  <p><?php echo "<img src='".$TARGET_PATH."'>"?></p> 
+      <p><img src=<?php echo "'".$TARGET_PATH."'" ?> width="350" height="280"></p>
       <form action="logout.php" method ="POST">
       <button type="submit" class="btn signup-btn">
             logout
