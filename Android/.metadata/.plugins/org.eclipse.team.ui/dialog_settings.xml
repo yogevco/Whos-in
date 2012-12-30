@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="ConfigureProjectWizard">
+	</section>
 	<section name="ImportPSFDialog">
+		<item value="https://github.com/itaiezra/RomanNumerals.git" key="previous_url"/>
+		<list key="urls">
+			<item value="https://github.com/itaiezra/RomanNumerals.git"/>
+		</list>
 	</section>
 </section>
