@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>User Registration</title>
+    <style type="text/css">
+    	
+    </style>
+</head>
+<body background = "19820-blue-vintage-wallpaper-background.jpg">
+    <blockquote>
+      <p><img src="Untitled.png" width="400" height="130">
+      
+        <form action="login.php" method ="POST">
+          <input type="email" id="signin-email" class="text-input email-input" name="Email" title="Email" autocomplete="on" tabindex=1>
+          <label for="signin-email" class="placeholder">Email</label>
+        <table class="flex-table password-signin">
+          <tbody>
+          <tr>
+            <td class="flex-table-primary">
+              <div class="placeholding-input password flex-table-form">
+                <input type="password" id="signin-password" class="text-input flex-table-input" name="Password" title="Password" tabindex=2>
+                <label for="signin-password" class="placeholder">Password</label>
+              </div>
+            </td>
+            <td class="flex-table-secondary">
+              <button type="submit" class="submit btn primary-btn flex-table-btn js-submit" tabindex=4>
+                Sign in
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="remember-forgot">
+          <label class="remember">
+            <input type="checkbox" value="1" name="remember_me" tabindex=3>
+            <span>Remember me</span>
+          </label>
+          <span class="separator">&middot;</span>
+          <a class="forgot" href="/forgot.html">Forgot password?</a>
+        </div>
+     </form>
+    </div>
+      <div class="front-signup js-front-signup">
+        <h2><strong>New to Whos In?</strong> Sign up</h2>
+      	<form action="register.php" method="POST"  enctype="multipart/form-data">
+        
+          <div class="placeholding-input">
+            <input type="text" id="signup-First-name" class="text-input" autocomplete="off" name="FirstName" maxlength="16">
+            <label for="signup-user-name" class="placeholder">First name</label>
+          </div>
+          <div class="placeholding-input">
+            <input type="text" id="signup-Last-name" class="text-input" autocomplete="off" name="LastName" maxlength="16">
+            <label for="signup-user-name" class="placeholder">Last name</label>
+          </div>
+          <div class="placeholding-input">
+            <input type="int" id="signup-Age" class="int-input" autocomplete="off" name="Age" maxlength="2">
+            <label for="signup-user-name" class="placeholder">Age</label>
+          </div>
+          <div class="placeholding-input">
+            <input type="email" id="signup-user-email" class="text-input email-input" autocomplete="off" name="Email">
+            <label for="signup-user-email" class="placeholder">Email</label>
+          </div>
+          <div class="placeholding-input">
+            <input type="password" id="signup-user-password" class="text-input" name="Password" minlength="6">
+            <label for="signup-user-password" class="placeholder">Password</label>
+          </div>
+          <div class="placeholding-input">
+            <input type="password" id="signup-user-password" class="text-input" name="Password1">
+            <label for="signup-user-password" class="placeholder">Confirm Password</label>
+          </div>
+    	  <div class="front-signup js-front-signup">
+            <input type="file" id="user-pic" class="file" autocomplete="off" name="Picture">
+            <label for="file" class="placeholder">Picture</label>
+          </div>
+          <button type="submit" class="btn signup-btn">
+            Sign up
+          </button>
+        </form>
+      </div>
+	</div>
+   </p>
+   <p>&nbsp;</p>
+
+   <form action="reLogin.html" method ="LINK">
+         <button type="submit" class="btn business-btn">
+            Business Owners Click Here
+          </button>        
+     </form>
+  </blockquote>
+</body>
+</html>
