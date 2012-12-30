@@ -10,11 +10,13 @@ $numrows = mysql_num_rows($query);
 			$count++;	
 		}
 if($numrows)
-	while($count!=1)
+	/*while($count!=1)
 	{
 		$count--;
 		echo $list['$count'];
 	}
+	*/
+	echo json_encode($count);
 mysql_free_result($query);
 
 ?>
