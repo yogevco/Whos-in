@@ -1,27 +1,26 @@
 <?php
 $userEmail = $_POST['mEmail'];
 $userPassword = $_POST['mPassword'];
+$row;
 
-if(selectFromDB() == $userPassword)
-	echo "Accept";
-else
-	echo "Denide";
-	
-function selectFromDB()
-{
-	global $userEmail;
+//echo "this is our try on  app_login.php :) \t 				";
+//echo "email recieved $userEmail \t 	:)						";
+//echo "Password recieved $userPassword \t :)					";
+
 	require("includes/mysql_connect.php");
 	$query = mysql_query("SELECT * FROM users WHERE Email='$userEmail'");
 	$count = mysql_num_rows($query);
 	
-	if($count)
+//	echo "count is $count";
+	
+	if($count!=0)
 	{
-		$output = mysql_result($query, 0);
-		return $output;
+		$row = mysql_fetch_assoc($query);
+		if($userPassword == $row['Password'])
+			echo json_encode($row);	
+		else echo "Incorrect password ";
 	}
 	else
-		return 0;
+		echo "Email not found ";
 	mysql_free_result($query);
-}
-
 ?>
