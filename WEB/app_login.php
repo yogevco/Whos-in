@@ -1,7 +1,11 @@
 <?php
-$userEmail = $_POST['mEmail'];
-$userPassword = $_POST['mPassword'];
-$row;
+header('Content-type: application/json');
+$json = $_POST['jsonpost'];
+$data = json_decode($json, true);
+if($data == NULL)
+	exit('could not decode json');
+$userEmail = $data['mPassword'];
+$userPassword = $data['mEmail'];
 
 //echo "this is our try on  app_login.php :) \t 				";
 //echo "email recieved $userEmail \t 	:)						";
@@ -21,6 +25,6 @@ $row;
 		else echo "Incorrect password ";
 	}
 	else
-		echo "Email not found ";
+		echo "Email not found $userEmail and $userPassword ";
 	mysql_free_result($query);
 ?>
