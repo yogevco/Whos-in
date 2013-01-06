@@ -37,8 +37,8 @@
 		  require("includes/ak_php_ing_lib_1.0.php");
 	//	$target_file = "uploads/$fileName";
 	//	$resized_file = "uploads/resized_$fileName";
-        $wmax = 350;
-        $hmax = 250;
+        $wmax = 300;
+        $hmax = 200;
         ak_img_resize($TP, $TP, $wmax, $hmax, $format);
 			$_SESSION[$count] = $TP;
 			//$_SESSION[$count] = $row['Picture'];
@@ -54,13 +54,13 @@
 		if($curr >= $last)
 			$curr = 1;
 
-		if(($last>10)&&(($last-$curr)<9))
-			$curr=$last-10;
+		if(($last>8)&&(($last-$curr)<7))
+			$curr=$last-8;
 		$j=$last;	
-		if($last<10)
+		if($last<8)
 		{ 
 			$j=$last;
-			while ($j!=10)
+			while ($j!=8)
 			{
 				$_SESSION[$j]=NULL;
 				$j = $j + 1;
@@ -84,9 +84,12 @@
     </style>
 <link href="CSS/TabMenu.css" rel="stylesheet" type="text/css">
 <link href="CSS/Gallery.css" rel="stylesheet" type="text/css">
+<link href="CSS/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body background = "19820-blue-vintage-wallpaper-background.jpg">
     <p><img src="Untitled.png" width="200" height="70">
+    <div id="doc" class="yui-t7">
+  <div id="hd">
     <div id="navbar">
     	<div id="holder">
     		<ul>
@@ -96,14 +99,19 @@
         	</ul>
     	</div><!-- end of "holder" -->
     </div><!--end of "navbar" -->
-    <p>&nbsp;</p>
+    
     <p><?php echo "<img src='".$TARGET_PATH."'>"?></p>
-    <p>&nbsp;</p>
+    
+    </div>
+  <div id="bd">
+    <div id="yui-main">
+      <div class="yui-b">
+        <div class="content">
     <div id="gallerywrapper">
  		 <ul class="gallerydisplay">
 			<li>        
    				<?php
-				$temp=5;
+				$temp=4;
 				$loc=1;
 				while($temp!=0)
 				{
@@ -122,20 +130,17 @@
 			</li>
     	</ul>
     </div>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
+   </div>
+      </div>
+    </div>
+    <div class="yui-b">
+      <div id="secondary">
     <div id="gallerywrapper">
 <ul class="gallerydisplay">
 			<li>        
    				<?php
-				$temp=5;
-				$loc=5;
+				$temp=4;
+				$loc=4;
 				while($temp!=0)
 				{
 					if($_SESSION[$curr+$loc]==NULL)
@@ -153,29 +158,19 @@
 			</li>
     	</ul>
     </div>
-  
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <div id="gallerywrapper">
- 		 <ul class="gallerydisplay">
-			<li>        
+ </div>
+    </div>
+  </div>
+  <div id="ft">
+   
+            
    			  <form action="logout.php" method ="POST">
 			  <button type="submit" class="btn signup-btn">
         		logout
   			  </button>
 			  </form>
-			</li>
-   	  </ul>
+		
+  </div>
 </div>
 
 <meta http-equiv="refresh" content="10">
