@@ -9,10 +9,10 @@
 
 #navbar #holder
 {
-	height:51px;
+	hight:64px;
 	border-bottom:1px solid #000;
 	width:366px;
-	padding-left:25px;
+	padding-left:25px;	
 }
 
 #navbar #holder ul
@@ -30,8 +30,8 @@
 	color:#000;
 	border:1px solid #000;
 	border-bottom:none;
-	padding:15px;
-	width:60px;
+	padding:20px;
+	width:75px;
 	text-align:center;
 	display:block;
 	background:none;
@@ -47,14 +47,14 @@
 
 #holder ul li a#onlink
 {
-	background:none;
-	color:#C0F;
+	background:#FFF;
+	color:#000;
 	border-bottom:1px solid #FFF;
 }
 
 #holder ul li a#onlink:hover
 {
-	background:none;
+	background:#FFF;
 	color:#69F;
 	text-shadow:1px 1px 1px #000;
 }

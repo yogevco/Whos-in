@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#gallerywrapper{
+	float:left;
+	position:relative;
+	z-index:5;
+	height:200px;
+}
