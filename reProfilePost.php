@@ -14,7 +14,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Re Profile</title>
+    <title>Business Post</title>
+    <link rel="shortcut icon" href="/images/logoIcon.ico" />
     <style type="text/css">
     </style>
 	<link href="CSS/TabMenu.css" rel="stylesheet" type="text/css">
@@ -46,16 +47,21 @@
 		$Enter.= ':';
      	require("includes/mysql_connect.php");
 	  	$Temp = $_POST['Post'];
-	    $dbPost .= $Enter;
-		$dbPost .= $Temp;
 		$Clear = $_POST['Clear'];
+		if($Temp!=NULL)
+		{
+	    	$dbPost .= $Enter;
+			$dbPost .= $Temp;
+			$query = mysql_query("UPDATE re SET Post = '$dbPost' WHERE ID = '$dbID'");
+	    	$_SESSION['Post'] = $dbPost;
+		}
 		if($Clear==="Clear")
 		{
 			$dbPost = $Enter;
+			$query = mysql_query("UPDATE re SET Post = '$dbPost' WHERE ID = '$dbID'");
+	    	$_SESSION['Post'] = $dbPost;
 		}
-		$query = mysql_query("UPDATE re SET Post = '$dbPost' WHERE ID = '$dbID'");
-	    $_SESSION['Post'] = $dbPost;
-        echo $dbPost;
+		echo $dbPost;
 		?>
         </div>
       </div>

@@ -7,6 +7,8 @@ if(isset($_SESSION['Email'])) {
 	require("includes/mysql_connect.php");
 //	$row = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE Email='$Email' LIMIT 1"));
 	$query = mysql_query("SELECT * FROM users WHERE Email='$logEmail'");
+	$query2 = mysql_query("SELECT Business_Name FROM re");
+	$query3 = mysql_query("SELECT * FROM friends_list WHERE User='$logEmail'");
 	$numrows = mysql_num_rows($query);
 		while ($row = mysql_fetch_assoc($query))
 		{
@@ -35,7 +37,8 @@ if(isset($_SESSION['Email'])) {
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>User Registration</title>
+    <title>User Profile</title>
+    <link rel="shortcut icon" href="/images/logoIcon.ico" />
     <style type="text/css">
     	
     </style>
@@ -47,8 +50,30 @@ if(isset($_SESSION['Email'])) {
 	  <p>First Name:<?php echo $dbName;?></p>  
 	  <p>Last Name:<?php echo $dbLast;?></p>
       <p><img src=<?php echo "'".$TARGET_PATH."'" ?> width="350" height="280"></p>
-      <form action="logout.php" method ="POST">
-      <button type="submit" class="btn signup-btn">
+      <p>&nbsp;</p>
+      <p>Places we work with: 	<?php echo "<br>";
+	  							$i=mysql_num_rows($query2);
+	  							while($i!=0)
+	  							{
+									$Business = mysql_fetch_assoc($query2);
+									echo $Business['Business_Name']."<br>";
+									$i--;	
+								}
+	  							?></p>
+<p>&nbsp;</p>
+                                        
+      <p>Friends List: 			<?php echo "<br>";
+	  							$i=mysql_num_rows($query3);
+	  							while($i!=0)
+	  							{
+									$Friend = mysql_fetch_assoc($query3);
+									echo $Friend['Friend']."<br>";
+									$i--;	
+								}
+	  							?></p>
+      <p>&nbsp;</p>                                  
+<form action="logout.php" method ="POST">
+<button type="submit" class="btn signup-btn">
             logout
           </button>
        </form>

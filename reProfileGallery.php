@@ -78,7 +78,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Re Profile</title>
+    <title>Business Gallery</title>
+    <link rel="shortcut icon" href="/images/logoIcon.ico" />
     <style type="text/css">
     	
     </style>
