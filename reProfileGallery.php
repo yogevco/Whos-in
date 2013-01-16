@@ -6,16 +6,24 @@
 	$dbName = $_SESSION['Name'];
 	$dbAdress = $_SESSION['Adress'];
 	$dbEmail = $_SESSION['Email'];
+	require("includes/ak_php_ing_lib_1.0.php");
+	
 	$TARGET_PATH .= "images/";
  	$TARGET_PATH .= $dbLOGO;
-
+/*	$TPI = $TARGET_PATH;
+	$kab = explode(".", $TPI);
+	$format = end($kab);
+    $wmax = 300;
+    $hmax = 200;
+    ak_img_resize($TARGET_PATH, $TARGET_PATH, $wmax, $hmax, $format);  */
+	
 	if($_SESSION['Slide_show'] == "off")
 	{
 		$curr = 1;
 		$_SESSION['curr'] = $curr;	
 	}
 	else{
-	 	$curr = $_SESSION['curr'] + 10;
+	 		$curr = $_SESSION['curr'] + 8;
 		}
 		// get image files from directory
 	$count = 1;
@@ -25,8 +33,9 @@
 	function get_images($count, $dbID)
 	{		
 		require("includes/mysql_connect.php");
-		$query = mysql_query("SELECT * FROM users WHERE Location='$dbID'"); // change to * later
+		$query = mysql_query("SELECT * FROM users WHERE Location = '$dbID'"); // change to * later
 		$numrows = mysql_num_rows($query);
+		
 		while ($row = mysql_fetch_assoc($query))
 		{
 		  $dbPicture = $row['Picture'];
@@ -34,14 +43,14 @@
 		  $kab = explode(".", $dbPicture);
 		  $format = end($kab);
 		
-		  require("includes/ak_php_ing_lib_1.0.php");
+		  
 	//	$target_file = "uploads/$fileName";
 	//	$resized_file = "uploads/resized_$fileName";
         $wmax = 300;
         $hmax = 200;
         ak_img_resize($TP, $TP, $wmax, $hmax, $format);
 			$_SESSION[$count] = $TP;
-			//$_SESSION[$count] = $row['Picture'];
+		//	$_SESSION[$count] = $row['Picture'];
 			$count = $count + 1;
 		}
 			return $count;
@@ -66,10 +75,11 @@
 				$j = $j + 1;
 			}
 		}
-	//	echo "curr is: $curr last is: $last j is: $j ";
+	// echo "curr is: $curr last is: $last j is: $j ";
 		return $curr;
 	}
 			
+	//	echo "curr is: $curr last is: $last ";
 	$_SESSION['Slide_show'] = "on";
 	$_SESSION['curr'] = $curr;
 	 
@@ -113,7 +123,7 @@
 			<li>        
    				<?php
 				$temp=4;
-				$loc=1;
+				$loc=0;
 				while($temp!=0)
 				{
 					if($_SESSION[$curr+$loc]==NULL)
@@ -122,7 +132,7 @@
 					}
 					else
 					{
-					echo "<img src='".$_SESSION[$curr+$loc]."'>";
+						echo "<img src='".$_SESSION[$curr+$loc]."'>";
 					}
 					$temp--;
 					$loc++;
