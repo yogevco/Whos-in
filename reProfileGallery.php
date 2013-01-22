@@ -10,12 +10,12 @@
 	
 	$TARGET_PATH .= "images/";
  	$TARGET_PATH .= $dbLOGO;
-/*	$TPI = $TARGET_PATH;
+	$TPI = $TARGET_PATH;
 	$kab = explode(".", $TPI);
 	$format = end($kab);
-    $wmax = 300;
-    $hmax = 200;
-    ak_img_resize($TARGET_PATH, $TARGET_PATH, $wmax, $hmax, $format);  */
+   	 $wmax = 220;
+   	 $hmax = 250;
+    	ak_img_resize($TARGET_PATH, $TARGET_PATH, $wmax, $hmax, $format);  
 	
 	if($_SESSION['Slide_show'] == "off")
 	{
