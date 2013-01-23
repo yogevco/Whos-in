@@ -71,7 +71,7 @@
 	   				//		 $sql = "insert into people (fname, lname, filename) values ('$fname', '$lname', '" . $image['name'] . "')";
 	    			//		$result = mysql_query($sql) or die ("Could not insert data into DB: " . mysql_error());
 		
-							$query = mysql_query("INSERT INTO users VALUES ('$Email', '$PrivateName', '$LastName', '$Age', '$Password', '" . $TARGET_PATH . "', '')");
+							$query = mysql_query("INSERT INTO users VALUES ('$Email', '$PrivateName', '$LastName', '$Age', '$Password', '" . $TARGET_PATH . "', '0', 'no')");
 							die("Registration complete! <a href='index.html'>Click here to login</a>");
 						    exit;
 						}
